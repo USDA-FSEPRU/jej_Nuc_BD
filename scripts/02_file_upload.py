@@ -1,9 +1,6 @@
 import sevenbridges as sbg
 import glob
 
-# make a list of the filenames to upload
-file_list = [ filename for filename in glob.iglob('raw_data/' + 'lane*/*.gz', recursive=True) ]
-print(file_list)
 
 
 config_file = sbg.Config(profile = 'sbpla')
@@ -17,6 +14,9 @@ my_files = api.files.query(project = my_project)
 print('In project {}, you have {} files.'.format(
     my_project.name, my_files.total))
 
+# make a list of the filenames to upload
+file_list = [ filename for filename in glob.iglob('raw_data/' + 'lane*/*.gz', recursive=True) ]
+print(file_list)
 
 
 for f in file_list:
@@ -34,8 +34,11 @@ for f in file_list:
 #for f in reference_list:
 #    api.files.upload(project=my_project, path=f)
 
-manual_upload = ['reference_genome/Sus_scrofa.Sscrofa11.1.97.gtf','reference_genome/Sus_scrofa.Sscrofa11.1.dna.toplevel.fa']
+#manual_upload = ['reference_genome/Sus_scrofa.Sscrofa11.1.97.gtf','reference_genome/Sus_scrofa.Sscrofa11.1.dna.toplevel.fa']
 
+manual_upload = ['reference_genome/Sscrofa11.1.97.star-2.7.10a-index.tar.gz']
 
 for f in manual_upload:
     api.files.upload(project=my_project, path=f)
+
+
