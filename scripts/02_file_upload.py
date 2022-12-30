@@ -1,7 +1,10 @@
 import sevenbridges as sbg
 import glob
 
+# This script is how I uploaded the raw sequencing and reference genome files
 
+# I created a conda environment to run these scripts
+# this environment is located at /project/fsepru/conda_envs/sevenbridges
 
 config_file = sbg.Config(profile = 'sbpla')
 api = sbg.Api(config=config_file)
@@ -22,21 +25,8 @@ print(file_list)
 for f in file_list:
     api.files.upload(project=my_project, path=f)
 
-
-
-# reference genome upload:
-# make a list of the filenames to upload
-#reference_list = [ filename for filename in glob.iglob('reference_genome/' + 'Sus_scrofa*.gz', recursive=False) ]
-#print(reference_list)
-
-
-
-#for f in reference_list:
-#    api.files.upload(project=my_project, path=f)
-
-#manual_upload = ['reference_genome/Sus_scrofa.Sscrofa11.1.97.gtf','reference_genome/Sus_scrofa.Sscrofa11.1.dna.toplevel.fa']
-
-manual_upload = ['reference_genome/Sscrofa11.1.97.star-2.7.10a-index.tar.gz']
+# reference genome
+manual_upload = ['reference_genome/Sus_scrofa.Sscrofa11.1.97.gtf','reference_genome/Sus_scrofa.Sscrofa11.1.dna.toplevel.fa']
 
 for f in manual_upload:
     api.files.upload(project=my_project, path=f)

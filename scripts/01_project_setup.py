@@ -1,5 +1,13 @@
 import sevenbridges as sb
 
+# I used a seven bridges config file stored at ~/sevenbridges/credentials
+# this is what the file looks like:
+# [sbpla]
+# api_endpoint = https://api.sbgenomics.com/v2
+# auth_token = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+
 config_file = sb.Config(profile = 'sbpla')
 api = sb.Api(config=config_file)
 
